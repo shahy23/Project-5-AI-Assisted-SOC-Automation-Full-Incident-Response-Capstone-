@@ -1,0 +1,86 @@
+{
+  "dataset": "Week 1 fictional authentication dataset",
+  "description": "Inputs used for all Week 1 local LLM tests (Llama 3, Mistral, Phi-3). All data is fictional.",
+  "notes": [
+    "192.0.2.0/24 is TEST-NET-1, an IPv4 range reserved for documentation (RFC 5737). It is not a real host, so IP reputation lookups do not apply.",
+    "Timestamps are local time; no time zone was specified in the source data.",
+    "No additional endpoint, network, or threat intelligence evidence exists for this dataset."
+  ],
+  "logs": [
+    {
+      "id": "LOG-001",
+      "timestamp": "2026-10-13T10:00:00",
+      "host": "WS-01",
+      "user": "alice",
+      "source_ip": "192.0.2.25",
+      "event_id": 4625,
+      "event_name": "An account failed to log on",
+      "result": "failed_login"
+    },
+    {
+      "id": "LOG-002",
+      "timestamp": "2026-10-13T10:00:15",
+      "host": "WS-01",
+      "user": "alice",
+      "source_ip": "192.0.2.25",
+      "event_id": 4625,
+      "event_name": "An account failed to log on",
+      "result": "failed_login"
+    },
+    {
+      "id": "LOG-003",
+      "timestamp": "2026-10-13T10:00:30",
+      "host": "WS-01",
+      "user": "alice",
+      "source_ip": "192.0.2.25",
+      "event_id": 4625,
+      "event_name": "An account failed to log on",
+      "result": "failed_login"
+    },
+    {
+      "id": "LOG-004",
+      "timestamp": "2026-10-13T10:01:00",
+      "host": "WS-01",
+      "user": "alice",
+      "source_ip": "192.0.2.25",
+      "event_id": 4624,
+      "event_name": "An account was successfully logged on",
+      "result": "successful_login"
+    }
+  ],
+  "raw_log_lines": [
+    "LOG-001 | 2026-10-13 10:00:00 | host=WS-01 | user=alice | source_ip=192.0.2.25 | event_id=4625 | result=failed_login",
+    "LOG-002 | 2026-10-13 10:00:15 | host=WS-01 | user=alice | source_ip=192.0.2.25 | event_id=4625 | result=failed_login",
+    "LOG-003 | 2026-10-13 10:00:30 | host=WS-01 | user=alice | source_ip=192.0.2.25 | event_id=4625 | result=failed_login",
+    "LOG-004 | 2026-10-13 10:01:00 | host=WS-01 | user=alice | source_ip=192.0.2.25 | event_id=4624 | result=successful_login",
+    "These are fictional test logs. No additional evidence is available."
+  ],
+  "alert": {
+    "alert_id": "SOC-001",
+    "alert_name": "Multiple Failed Login Attempts",
+    "timestamp": "2026-10-13T10:01:00",
+    "affected_host": "WS-01",
+    "username": "alice",
+    "source_ip": "192.0.2.25",
+    "siem_severity": "Medium",
+    "description": "Three failed login attempts followed by one successful login within one minute.",
+    "supporting_evidence": ["LOG-001", "LOG-002", "LOG-003", "LOG-004"],
+    "additional_evidence": "No additional endpoint, network, or threat intelligence evidence is available.",
+    "note": "This is a fictional alert created for testing."
+  },
+  "investigation": {
+    "incident_reference": "IR-001",
+    "incident_type": "Suspicious Authentication Activity",
+    "evidence": [
+      "LOG-001: Failed login for alice on WS-01 at 10:00:00.",
+      "LOG-002: Failed login for alice on WS-01 at 10:00:15.",
+      "LOG-003: Failed login for alice on WS-01 at 10:00:30.",
+      "LOG-004: Successful login for alice on WS-01 at 10:01:00."
+    ],
+    "source_ip": "192.0.2.25",
+    "related_alert": "SOC-001 — Multiple Failed Login Attempts",
+    "status": "Preliminary. No additional evidence has been collected.",
+    "response_actions": "No containment, eradication, or recovery actions have been performed.",
+    "note": "These are fictional events created for a model evaluation exercise."
+  }
+}

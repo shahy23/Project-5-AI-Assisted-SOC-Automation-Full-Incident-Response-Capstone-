@@ -1,0 +1,118 @@
+EventID : 302
+
+Event Time : 2024-09-20T06:35:12+03:00
+
+Rule : SOC324 - Sudoers File Modification Detected
+
+Role : Incident Responder
+
+Alert Type : Brute Force
+
+Difficulty : Medium
+
+MITRE ATT&CK : T1078, T1133, T1059.004, T1136, T1548, T1548.003, T1110
+
+L1 Note : Minutes before the alert, I saw a Brute Force attempt with different users from the IP 149.88.25.133 towards the system. However, I could not determine whether this attack was successful or not.
+
+Hostname : Kristine
+
+Ip Address : 172.16.17.129
+
+Command Line : sudo cat /etc/sudoers
+
+Trigger Reason : Accessing the /etc/sudoers file is often a precursor to abusing the sudo mechanism itself, allowing attackers to run commands with elevated privileges.
+=========================================================================
+EventID : 126
+
+Event Time : 2023-03-08T10:32:36+03:00
+
+Rule : SOC176 - RDP Brute Force Detected
+
+Role : Incident Responder
+
+Alert Type : Brute Force
+
+Difficulty : Easy
+
+MITRE ATT&CK : T1078
+
+L1 Note : I checked the RDP logs and saw login failures. but I could not understand if the brute force attack was successful or not.
+
+Protocol : RDP
+
+Username : Olivia
+
+Firewall Action : Allowed
+
+Source IP Address : 18.218.132.237
+
+Alert Trigger Reason : 5 RDP login failures with the same username in 5 minutes
+
+Destination Hostname : Olivia
+
+Destination IP Address : 172.16.17.66
+==============================================================================================
+EventID : 299
+
+Event Time : 2024-09-12T07:09:35+03:00
+
+Rule : SOC321 - Windows Defender Evasion Attempt
+
+Role : Incident Responder
+
+Alert Type : Malware
+
+Difficulty : Medium
+
+MITRE ATT&CK : T1078, T1133, T1059.001, T1059.003, T1211, T1110L1
+
+
+Notes : Minutes before the alert, I saw brute force attempts towards the system on IP 89.187.177.73.
+However, I could not determine whether these attempts were successful or not. Therefore, 
+I could not understand whether the relevant command was attacker or admin activity.  
+ 
+Hostname : Elenora
+  
+IPAddress : 172.16.17.126
+
+EDRAVAction : Not Detected
+
+ProcessName : RUNDLL32.EXE
+
+TriggerReason : The combination of rundll32 and vbscript is a technique often used for malicious activity.
+This command can be intended to bypass Defender's detection and protection mechanisms, 
+which can cause security systems to generate an alert.   
+ 
+ 
+TriggerCommand : rundll32 vbscript:"..\mshtml..\LoL45..\mshtml,RunHTMLApplication " 
++ String(CreateObject("Wscript.Shell").Run("calc.exe"), 0)
+=================================================================
+EventID : 314
+
+Event Time : 2025-02-04T16:18:08+03:00
+
+Rule : SOC336 - Windows OLE Zero-Click RCE Exploitation Detected (CVE-2025-21298)
+
+Role : Security Analyst
+
+Alert Type : Malware
+
+Difficulty : Medium
+
+MITRE ATT&CK : T1566, T1059.001, T1574.002
+
+Attachment : mail.rtf
+
+SMTP Address : 84.38.130.118
+
+Device Action : Allowed
+
+E-mail Subject : Important: Action Required for Upcoming Project Deadline
+
+Source Address : projectmanagement@pm.me
+
+Trigger Reason : Malicious RTF attachment identified with known CVE-2025-21298 exploit pattern.
+
+Attachment Hash : df993d037cdb77a435d6993a37e7750dbbb16b2df64916499845b56aa9194184
+
+Destination Address : Austin@letsdefend.io

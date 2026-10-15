@@ -1,0 +1,87 @@
+[
+  {
+    "EventID": 1001,
+    "TimeCreated": "2026-10-15T01:42:10.000Z",
+    "Computer": "kali-control",
+    "Channel": "Auth",
+    "Message": "Accepted password for user session.",
+    "EventData": {
+      "SubjectUserName": "shahy",
+      "ProcessName": "/usr/sbin/sshd",
+      "ProcessID": "2415",
+      "SourceIP": "192.168.1.105",
+      "SourcePort": "54210",
+      "AuthMethod": "password",
+      "Protocol": "ssh2"
+    },
+    "Category": "Normal",
+    "Description": "Successful SSH authentication for authorized user shahy on Kali Linux from internal IP address"
+  },
+  {
+    "EventID": 1002,
+    "TimeCreated": "2026-10-15T01:45:00.000Z",
+    "Computer": "kali-control",
+    "Channel": "Syslog",
+    "Message": "Service state changed.",
+    "EventData": {
+      "SubjectUserName": "root",
+      "ProcessName": "/lib/systemd/systemd",
+      "ProcessID": "1",
+      "ServiceName": "cron.service",
+      "ServiceState": "started"
+    },
+    "Category": "Normal",
+    "Description": "Routine systemd service activation for Periodic Command Scheduler (cron)"
+  },
+  {
+    "EventID": 1003,
+    "TimeCreated": "2026-10-15T01:48:22.000Z",
+    "Computer": "kali-control",
+    "Channel": "Auth",
+    "Message": "Privileged command execution via sudo.",
+    "EventData": {
+      "SubjectUserName": "shahy",
+      "TargetUserName": "root",
+      "Terminal": "pts/0",
+      "WorkingDirectory": "/home/shahy",
+      "CommandLine": "/usr/bin/apt update"
+    },
+    "Category": "Normal",
+    "Description": "Legitimate Kali repository update executed via sudo by user shahy"
+  },
+  {
+    "EventID": 1004,
+    "TimeCreated": "2026-10-15T01:50:12.000Z",
+    "Computer": "kali-control",
+    "Channel": "Auth",
+    "Message": "Authentication failure for SSH connection.",
+    "EventData": {
+      "SubjectUserName": "admin",
+      "ProcessName": "/usr/sbin/sshd",
+      "ProcessID": "3102",
+      "SourceIP": "185.220.101.5",
+      "SourcePort": "41102",
+      "AuthStatus": "Failed",
+      "UserValidity": "invalid user"
+    },
+    "Category": "Malicious",
+    "Description": "SSH Brute Force / Credential Stuffing attempt against non-existent account admin from external IP"
+  },
+  {
+    "EventID": 1005,
+    "TimeCreated": "2026-10-15T01:50:15.412Z",
+    "Computer": "kali-control",
+    "Channel": "Auditd",
+    "Message": "System call process execution (EXECVE).",
+    "EventData": {
+      "SubjectUserName": "root",
+      "SubjectUserUid": "0",
+      "NewProcessName": "/bin/bash",
+      "CommandLine": "/bin/bash -c \"useradd -m backdoor_user && ip a\"",
+      "ParentProcessName": "/usr/sbin/sshd",
+      "AuditSequenceID": "892"
+    },
+    "Category": "Malicious",
+    "Description": "Unauthorized local backdoor user creation and network interface enumeration via shell execution"
+  }
+]
